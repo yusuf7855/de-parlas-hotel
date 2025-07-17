@@ -107,16 +107,7 @@ function OurServices({servicesRef}) {
                                 px: 1
                             }}
                         />
-                        <Chip
-                            icon={<Pool />}
-                            label="Fitness Center"
-                            sx={{
-                                backgroundColor: "#F5E6E0",
-                                color: "#C77A63",
-                                fontWeight: 600,
-                                px: 1
-                            }}
-                        />
+
                         <Chip
                             icon={<Restaurant />}
                             label="Restoran"

@@ -28,9 +28,15 @@ function ServiceImageGallery({imageList, id = 1}) {
             },
             display: 'flex',
             flexDirection: 'column',
-            width: '100%'
+            width: '100%',
+            height: '100%'
         }}>
-            <Box sx={{position: "relative", flex: 1}}>
+            {/* Ana Resim Slider */}
+            <Box sx={{
+                position: "relative",
+                height: "calc(100% - 120px)", // Thumbnail için yer bırak
+                minHeight: "300px"
+            }}>
                 <Box>
                     <Box sx={{
                         position: "absolute",
@@ -88,11 +94,12 @@ function ServiceImageGallery({imageList, id = 1}) {
                                     alt={`product-${id}-${index}`}
                                     skeleton={true}
                                     width={"100%"}
+                                    height={"100%"}
                                     sx={{
-                                        aspectRatio: {xs: 1.25, sm: 2, mlg: "auto"},
                                         userDrag: "none",
                                         userSelect: "none",
-                                        borderRadius: 2
+                                        borderRadius: 2,
+                                        objectFit: "cover"
                                     }}
                                     objectFit={"cover"}
                                     src={img}
@@ -102,7 +109,15 @@ function ServiceImageGallery({imageList, id = 1}) {
                     }
                 </Swiper>
             </Box>
-            <Box sx={{display: "flex", justifyContent: "center", mt: {xs: 1, sm: 1.5}}}>
+
+            {/* Thumbnail Slider */}
+            <Box sx={{
+                display: "flex",
+                justifyContent: "center",
+                mt: {xs: 1, sm: 1.5},
+                height: "100px", // Sabit yükseklik
+                flexShrink: 0 // Küçülmeyi engelle
+            }}>
                 <Box sx={{width: "100%", borderRadius: 2, height: "100%"}}>
                     <Swiper
                         grabCursor={true}
@@ -113,6 +128,7 @@ function ServiceImageGallery({imageList, id = 1}) {
                         watchSlidesProgress={true}
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="thumbsSwiper"
+                        style={{height: '100%'}}
                         breakpoints={{
                             0: {
                                 slidesPerView: 2,
@@ -137,13 +153,13 @@ function ServiceImageGallery({imageList, id = 1}) {
                                         alt={`product-${id}-${index}`}
                                         skeleton={true}
                                         width={"100%"}
+                                        height={"100%"}
                                         sx={{
                                             userDrag: "none",
                                             userSelect: "none",
                                             borderRadius: 2,
-                                            height: "100%!important"
+                                            objectFit: "cover"
                                         }}
-                                        height={"100%"}
                                         objectFit={"cover"}
                                         src={img}
                                     />
@@ -153,6 +169,7 @@ function ServiceImageGallery({imageList, id = 1}) {
                     </Swiper>
                 </Box>
             </Box>
+
             <StyledLightbox imageList={imageList} fullSizePictureOpen={fullSizePictureOpen}
                             setFullSizePictureOpen={setFullSizePictureOpen}
                             startIndex={startIndex} setStartIndex={setStartIndex}/>

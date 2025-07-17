@@ -1,13 +1,21 @@
-import {Box, Grid} from "@mui/material";
+import {Box, Grid, Typography} from "@mui/material";
 import {useParams} from "react-router-dom";
 import {services} from "../../utils/services.jsx";
+import {rooms} from "../../utils/rooms.jsx";
 import {StyledContainer} from "../../components/styled/StyledComponents.jsx";
 import ServiceImageGallery from "./components/ServiceImageGallery.jsx";
 import ServicePageDescription from "./components/ServicePageDescription.jsx";
 
 function ServicePage() {
     const {serviceRoute} = useParams();
-    const service = services.find((item) => item.route === serviceRoute);
+
+    // Önce services'ten, sonra rooms'tan ara (rooms detaylı resimlere sahip)
+    let service = services.find((item) => item.route === serviceRoute);
+
+    // Eğer services'te bulunamazsa rooms'tan kontrol et
+    if (!service) {
+        service = rooms.find((item) => item.route === serviceRoute);
+    }
 
     // Oda bulunamadıysa varsayılan değerler
     if (!service) {
@@ -22,7 +30,7 @@ function ServicePage() {
 
     return (
         <Box>
-            <StyledContainer sx={{py: {xs: 2, md: 4}}}>
+            <StyledContainer sx={{py: {xs: 2, md: 4}, mb: {xs: 4, md: 6}}}>
                 <Grid container spacing={2}>
                     <Grid item xs={12} mlg={6}>
                         <Box sx={{
@@ -31,11 +39,14 @@ function ServicePage() {
                             p: 2,
                             width: '100%',
                             height: {
-                                mlg: "calc(100vh - 144px)",
+                                xs: "400px",
+                                sm: "500px",
+                                md: "600px",
+                                mlg: "70vh",
                             },
                             display: 'flex'
                         }}>
-                            <ServiceImageGallery imageList={service.images}/>
+                            <ServiceImageGallery imageList={service.images} id={service.id}/>
                         </Box>
                     </Grid>
                     <Grid item xs={12} mlg={6}>
@@ -45,7 +56,11 @@ function ServicePage() {
                             p: 2,
                             width: '100%',
                             height: {
-                                mlg: "calc(100vh - 144px)",
+                                xs: "auto",
+                                mlg: "70vh",
+                            },
+                            maxHeight: {
+                                mlg: "70vh"
                             },
                             overflowY: "auto"
                         }}>

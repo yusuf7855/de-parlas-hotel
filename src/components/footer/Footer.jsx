@@ -16,8 +16,8 @@ function Footer({logo}) {
                 position: 'relative',
                 overflow: 'hidden',
                 background: 'gray',
-
-
+                marginTop: 'auto', // Footer'ı sayfanın altına iter
+                zIndex: 1, // İçeriğin üstünde kalmasını sağlar
             }}
         >
             <Box
