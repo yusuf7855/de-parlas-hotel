@@ -4,9 +4,10 @@ import {Link} from "react-router-dom";
 import {AppBarTypography} from "../styled/StyledTypographies.jsx";
 import HamburgerMenu from "./HamburgerMenu.jsx";
 import {StyledContainer} from "../styled/StyledComponents.jsx";
-import {StyledColoredButton} from "../styled/StyledButtons.jsx";
+import {StyledWhatsAppButton} from "../styled/StyledButtons.jsx";
 import {NavigationMenu} from "./NavigationMenu.jsx";
-import PhoneIcon from "@mui/icons-material/Phone";
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+
 function NavBar({handleSidebar, logo, sidebarOpen, isTransparent, navItems, logoDark}) {
     const [scrolled, setScrolled] = React.useState(false)
     const changeColor = () => {
@@ -73,6 +74,7 @@ function NavBar({handleSidebar, logo, sidebarOpen, isTransparent, navItems, logo
                                    sidebarOpen={sidebarOpen}
                                    scrolled={scrolled}/>
                 </Box>
+
                 <Box
                     sx={{
                         flex: 1,
@@ -82,24 +84,23 @@ function NavBar({handleSidebar, logo, sidebarOpen, isTransparent, navItems, logo
                         py: { xs: 2, md: 2 },
                     }}
                 >
-                    <StyledColoredButton
+                    <StyledWhatsAppButton
                         sx={{
                             py: 2,
                             px: 5,
                             width: { xs: "80%", sm: "30%", md: "auto" },
                         }}
-                        href="tel:+905531748204"  // Telefon numarasını "tel:" protokolü ile belirtiyoruz
+                        href="https://wa.me/905396385955"
                         target="_blank"
                         rel="noreferrer"
                     >
                         <Typography sx={{ fontWeight: 300, textTransform: "none", color: "#fff" }}>
                             <Stack direction="row" alignItems="center" spacing={1}>
-                                <PhoneIcon sx={{ color: "#fff" }} />
+                                <WhatsAppIcon sx={{ color: "#fff" }} />
                                 +90 (539) 638 59 55
                             </Stack>
                         </Typography>
-                    </StyledColoredButton>
-
+                    </StyledWhatsAppButton>
                 </Box>
 
             </StyledContainer>

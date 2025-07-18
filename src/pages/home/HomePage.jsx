@@ -6,6 +6,7 @@ import OurServices from "./components/OurServices.jsx";
 import WhyUs from "./components/WhyUs.jsx";
 import ContactUs from "./components/ContactUs.jsx";
 import {useRef} from "react";
+import ContactMapSection from "../contact/components/ContactMapSection.jsx";
 
 function HomePage() {
     document.title = "DE PERLAS HOTEL";
@@ -15,6 +16,7 @@ function HomePage() {
         <Box>
             <HomeHero servicesRef={servicesRef}/>
             <References/>
+            <ContactMapSection/>
             <About/>
             <OurServices servicesRef={servicesRef}/>
             <WhyUs/>

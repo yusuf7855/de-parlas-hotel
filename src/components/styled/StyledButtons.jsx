@@ -76,3 +76,23 @@ export const StyledColoredButton = styled(Button)(({theme}) => ({
         backgroundPosition: "right center"
     },
 }))
+
+
+export const StyledWhatsAppButton = styled(Button)(({theme}) => ({
+    py: 1.5,
+    px: 2,
+    borderRadius: "400px",
+    overflow: "hidden",
+    textAlign: "center",
+    backgroundImage: `linear-gradient(to right, #25D366 10%, #1aab4c 51%, #128C7E 100%)`,
+    backgroundSize: "200% auto",
+    color: "white",
+    boxShadow: "0px 0px 50px 10px rgba(0,0,0,0.1)",
+    transition: ".3s all",
+    ":hover": {
+        backgroundColor: "#1aab4c",
+        color: "white",
+        boxShadow: "0px 0px 50px 10px rgba(37,211,102,0.3)",
+        backgroundPosition: "right center"
+    },
+}));
